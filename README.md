@@ -32,60 +32,7 @@ A searchable, filterable gallery of Figure 1 / teaser figures. Static HTML/CSS/J
 
 </div>
 
----
 
-## English
-
-**Top-Conf Figure Gallery** collects Figure 1 / teaser figures (concept diagrams, system frameworks, pipelines, architectures, benchmark overviews) from six ML/AI conferences, 2023–2026. It is a design reference, not a paper ranking. Each card links to the source paper and records venue, year, authors and a visual-pattern tag.
-
-- Filter by venue, year, acceptance tier and visual pattern; masonry layout with a lightbox.
-- Oral, Spotlight and Best/Outstanding-paper figures carry gold / silver / red badges (ICLR, ICML, NeurIPS 2023–2026).
-- Full-text search over titles and authors, e.g. `DPO`, `robot`, `gaussian`, `agent`.
-- Every figure is hand-reviewed. Over 25 heuristic rules first remove default matplotlib charts, plain tables, GUI screenshots and unlabeled photo sets; a person then checks the rest page by page. See [METHODOLOGY.md](docs/METHODOLOGY.md).
-- Pure static site, no backend or build; clone and double-click.
-- Open, reproducible pipeline: proceedings index → PDF download → Figure 1 crop → quality scoring → dHash de-duplication → manual review.
-
-### 🛠️ FigureForge Beta
-
-FigureForge drafts your Figure 1 from the gallery: describe your paper, and 3,452 top-conference figures provide the layout reference. No sign-up, no server; it runs in your browser. **[Try FigureForge →](forge/index.html)**
-
-<p align="center">
-  <img src="forge/demo-forge.gif?v=20261002" alt="FigureForge walkthrough: describe paper, retrieve references, generate bitmap draft" width="560">
-</p>
-
-**[▶ Full demo video, 1:58 with audio](https://qwdwqfwq.github.io/topconf-paper-figure-gallery/docs/demo.html)**
-
-[![▶ FigureForge demo video](assets/figureforge-demo-poster.jpg)](https://qwdwqfwq.github.io/topconf-paper-figure-gallery/docs/demo.html)
-
-1. **Describe the paper.** Paste the title and abstract, upload the PDF (the Step 1 model reads it and summarizes the sections matching overview / architecture / pipeline / results), or type one sentence giving the "input → method → output" story.
-2. **Pick a pattern.** `framework` for system or multi-agent overviews, `pipeline` for end-to-end flows, `architecture` for internal model structure, `conceptual` for visual metaphors; also `teaser` and `taxonomy`.
-3. **Tick references.** A CLIP + BM25 hybrid search ranks all 3,452 figures; the score is shown on each card. Tick at least 4 same-pattern cards for two-stage mode, or 2–3 for direct mode.
-
-   ![Pick references](forge/tutorial/02_pick_refs.png)
-
-4. **Two stages: summarize, then generate.** A vision model reads the picks, distils their common layout, elements, palette and hierarchy, selects 2–3 representative figures, and only then generates.
-
-   ![Two-stage analysis](forge/tutorial/03_analyze.png?v=20261002)
-
-5. **Choose a mode, add your key, download.** SVG mode gives accurate, editable text (Figma / draw.io / Illustrator); bitmap mode gives a publication-style layout to check in PPT / Figma. The key is stored only in your browser.
-
-> A bare prompt in a general chatbot returns a generic flowchart. FigureForge grounds the draft in top-conference figures, so it keeps the panel grid, comparative narrative and restrained palette of a paper figure.
-
-> ![Comparison](forge/tutorial/compare.png?v=20261002)
-
-- Runs entirely in your browser: the CLIP model and gallery index are bundled locally; paper content and keys stay on your device and the key goes only to the provider you choose.
-- Bring your own key. Presets: Volcengine Ark, SiliconFlow, Zhipu, DeepSeek, OpenAI, Moonshot, Qwen, Tencent Hunyuan, Anthropic, and any OpenAI-compatible relay.
-- The model list updates itself: the bundled manifest refreshes on load and the provider's live `/models` list is fetched once a key is entered. Anthropic has no list endpoint; Hunyuan and Anthropic block browser CORS, so use a relay for those.
-- Scope: a high-quality first draft for the Figure 1 genre. Check text and numbers before submission.
-- Open source forever, no paid version. MIT-licensed; the key pays the model provider directly. PRs are welcome for new papers, venues and label fixes, and the gallery is refreshed yearly with new proceedings.
-
-### Add a paper or figure
-
-Open a **[Suggest a figure](https://github.com/qwdwqfwq/topconf-paper-figure-gallery/issues/new?template=add-figure-request.md)** issue with the paper link — no coding needed. For PRs, [CONTRIBUTING.md](CONTRIBUTING.md) gives the metadata format and quality bar. New venues such as CHI / RSS / CoRL are welcome.
-
-Images belong to their authors and publishers; see [IMAGES_POLICY.md](IMAGES_POLICY.md) for the educational-use and 72-hour takedown policy.
-
----
 
 ## 中文
 
